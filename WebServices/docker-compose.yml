@@ -1,0 +1,50 @@
+---
+version: '3'
+services:
+  -aifi:
+    build:
+      dockerfile: Dockerfile
+      context: .  
+    container_name: ai-expert-webservices
+    depends_on:
+      - mongo_db
+    ports:
+      - 8001:8001
+    networks:
+      - -aifi-network
+    volumes:
+      - ./app:/base/app
+
+    environment:
+      - MONGODB_URI=mongodb://root:password@mongo_db:27017
+      - DB_NAME=assistant_db
+      - COLLECTION_NAME_DEAL=assistant_deals
+      - COLLECTION_NAME_OTP=assistant_otp
+      - COLLECTION_NAME_CONVERSATION=assistant_conversation
+      - COLLECTION_NAME_LOAN=assistant_loan
+      - COLLECTION_NAME_DOCS=assistant_docs
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - FILE_BASE_PATH=/base/app/
+
+  mongo_db:
+    image: mongo
+    container_name: mongo-expert-db
+    command: ["--auth"]
+    ports:
+      - 27017:27017
+    networks:
+      - -aifi-network
+    volumes:
+      - ./data:/data/db
+      - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - DB_NAME=assistant_db
+
+networks:
+  -aifi-network:
+volumes:
+  -aifi-volume:
+  

@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    height: 100vh; /* Full height of the viewport */
+  }
+  
+  .chat-window {
+    width: 300px; /* Fixed width for the chat window */
+    border-right: 1px solid #ccc; /* Optional: Add a border to separate the chat window */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  }
+  
+  .pdf-viewer-container {
+    flex-grow: 1; /* Take the remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .pdf-viewer-container .rpv-core__viewer {
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }

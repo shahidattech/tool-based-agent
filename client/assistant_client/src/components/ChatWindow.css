@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  height: calc(100vh - 45px); /* Adjust height to account for padding */
+  width: calc(80vw - 40px); /* Adjust width to account for padding */
+  position: relative;
+  margin: 20px; /* Thick margin from top, bottom, left, and right */
+  padding: 40px; /* Padding inside the container */
+  border: 5px solid #ccc; /* Thick border around the container */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.container.with-pdf .chat-window {
+  width: 50%; /* Adjusted width for the chat window when PDF viewer is active */
+}
+
+.container.with-pdf .pdf-viewer-container {
+  width: 50%; /* Adjusted width for the PDF viewer when active */
+}
+
+.chat-window {
+  width: 100%; /* Full width for the chat window when PDF viewer is not active */
+  /* border-right: 1px solid #ccc; Optional: Add a border to separate the chat window */
+  /* border: 1px solid #ccc; Border around the chat window */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  /* background-color: aqua !important; */
+  flex-shrink: 0; /* Prevent the chat window from shrinking */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-window .header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.chat-window .content {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.chat-window .footer {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

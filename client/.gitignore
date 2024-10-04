@@ -1,0 +1,11 @@
+/server/data/
+__pycache__/
+data/
+assistant_client/node_modules/
+client/assistant_client/node_modules/
+client/node_modules/
+node_modules/
+client/node_modules/
+client/assistant_client/node_modules/
+
+

@@ -1,0 +1,12 @@
+uvicorn==0.23.2
+gunicorn==20.1.0
+fastapi==0.101.1
+dspy-ai==2.4.9
+pymongo
+pydantic==2.7.4
+pydantic_core==2.18.4
+pydantic-settings
+langchain
+langchain_openai
+langchain_core
+reportlab

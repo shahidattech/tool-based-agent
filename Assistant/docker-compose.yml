@@ -1,0 +1,45 @@
+---
+version: '3'
+services:
+  -aifi:
+    build:
+      dockerfile: Dockerfile
+      context: .  
+    container_name: ai-finance-expert
+    # depends_on:
+    #   - mongo_db
+    ports:
+      - 8000:8000
+    networks:
+      - webservices_ai-network
+    volumes:
+      - ./app:/base/app
+
+    environment:
+      - MONGODB_URI=mongodb://root:password@mongo_db:27017
+      - DB_NAME=assistant_db
+      - COLLECTION_NAME_DEAL=assistant_deals
+      - COLLECTION_NAME_OTP=assistant_otp
+      - COLLECTION_NAME_CONVERSATION=assistant_conversation
+      - COLLECTION_NAME_LOAN=assistant_loan
+      - COLLECTION_NAME_DOCS=assistant_docs
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - AI_SOURCE=openai # azure_openai or openai or azure_rest
+      - AZURE_OPENAI_ENDPOINT=https://xxxx.openai.azure.com/
+      - AZURE_OPENAI_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXX
+      - AZURE_OPENAI_API_VERSION=2024-05-01-preview
+      - AZURE_OPENAI_MODEL_NAME=gpt-4
+      - OPENAI_MODEL_NAME=gpt-4
+      - OPENAI_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXX
+      - API_BASE_URL=XXXXXXXXXXXXXXXXXXXXXXXX
+      - FILE_BASE_PATH=/base/app/
+
+# Remote network webservices_ai-network
+networks:
+  webservices_ai-network:
+    external: true
+
+volumes:
+  -aifi-volume:
+  
