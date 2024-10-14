@@ -3,7 +3,7 @@
 This project is designed to provide support to customers and dealers through a Financial Agent that leverages OpenAI and Azure OpenAI. It consists of three main components:
 
 - **Client**: A React.js application.
-- **Web Services**: Services that simulate DMV processes, payments, SMS generation, and validation.
+- **Web Services**: Services that simulate DMV processes, payments, OTP generation, and validation.
 - **Assistant**: The AI agent, exposed through its API, can be integrated with any client.
 
 ## How to Start the Application
@@ -23,7 +23,7 @@ This project is designed to provide support to customers and dealers through a F
    ```bash
    docker-compose up --build
 
-3. In a few seconds, the Web Services will be running. To verify, visit: http://localhost:8001/nova/ai-fi/api/v1/webservices/docs
+3. In a few seconds, the Web Services will be running. To verify, visit: http://localhost:8001/mocked/api/v1/webservices/docs
 
 #### Step 2: Start Assistant Services
 This project can run on either the OpenAI or Azure OpenAI platforms.
@@ -62,7 +62,7 @@ For OpenAI:
     docker-compose up --build
 
 
-    4. In a few seconds, the Assistant will be running. To verify, visit: http://localhost:8000/nova/ai-fi/api/v1/assistant/docs
+    4. In a few seconds, the Assistant will be running. To verify, visit: http://localhost:8000/llm/api/v1/assistant/docs#/
 
 #### Step 3: Start  start Assistant Client.
 
@@ -76,3 +76,4 @@ The UI will be available at: http://localhost:3000/
 
 Demo:
 
+https://app.recorditor.com/recording/2466d969113205a3c5cbb6819f99caee417d54fbd8c0da06a5e8b72652ccc1829f9f9d24eecc179b100651275dc23eb7b2d9ee51049162a7bf114758e057b0b
