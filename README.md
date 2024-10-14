@@ -74,6 +74,15 @@ npm start
 
 The UI will be available at: http://localhost:3000/
 
-Demo:
+#Mocked Webservices
 
-https://app.recorditor.com/recording/2466d969113205a3c5cbb6819f99caee417d54fbd8c0da06a5e8b72652ccc1829f9f9d24eecc179b100651275dc23eb7b2d9ee51049162a7bf114758e057b0b
+![alt text](image.png)
+
+####Assistant Endpoints
+
+![alt text](image-1.png)
+
+####React Interface
+![alt text](image-2.png)
+
+![alt text](image-3.png)
