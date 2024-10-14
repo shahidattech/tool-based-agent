@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-const ASSISTANT_API_URL = 'http://localhost:8000/nova/ai-fi/api/v1/assistant/ai_assistant/ai-assistant/';
-const WEBSERVICE_BASE_URL = 'http://localhost:8001/nova/ai-fi/api/v1/webservices/document-management/download/';
-const DELETE_CONVERSATION_HISTORY_URL = 'http://localhost:8000/nova/ai-fi/api/v1/assistant/ai_assistant/delete_conversation_history';
+const ASSISTANT_API_URL = 'http://localhost:8000/llm/api/v1/assistant/';
+const WEBSERVICE_BASE_URL = 'http://localhost:8001/mocked/api/v1/webservices/';
 
 export const sendMessageToBot = async (message, customer_type) => {
   try {
@@ -15,7 +14,8 @@ export const sendMessageToBot = async (message, customer_type) => {
       "customer_type": customer_type,
     };
     console.log('Sending message to bot:', message);
-    const response = await axios.post(ASSISTANT_API_URL, payload, {
+    const assist_url = ASSISTANT_API_URL + 'assist/';
+    const response = await axios.post(assist_url, payload, {
       headers: {
         'accept': 'application/json',
         'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ export const sendMessageToBot = async (message, customer_type) => {
 export const downloadPdf = async (pdfUrl) => {
   try {
     console.log('Downloading PDF:', pdfUrl);
-    const full_url = WEBSERVICE_BASE_URL + pdfUrl;
+    const full_url = WEBSERVICE_BASE_URL + 'document-management/download/' + pdfUrl;
     const response = await axios.get(full_url, {
       responseType: 'blob'
     });
@@ -54,10 +54,12 @@ export const downloadPdf = async (pdfUrl) => {
 // Write function to make call curl -X 'DELETE' \
   // 'http://localhost:8000/nova/ai-fi/api/v1/assistant/ai_assistant/delete_conversation_history' \
   // -H 'accept: */*'
+// to delete the conversation history-, This is Demo , tune it to delete the conversation history with session_id
 export const deleteConversationHistory = async () => {
   try {
     console.log('Deleting conversation history');
-    const response = await axios.delete(DELETE_CONVERSATION_HISTORY_URL, {
+    const delete_url = ASSISTANT_API_URL + 'delete_conversation_history';
+    const response = await axios.delete(delete_url, {
       headers: {
         'accept': '*/*'
       }

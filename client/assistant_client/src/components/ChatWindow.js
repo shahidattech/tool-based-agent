@@ -227,7 +227,7 @@ const ChatWindow = () => {
         <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', padding: 1 }}>
           <img src={sampleLogo} alt="Logo" style={{ height: '50px', marginRight: '10px' }} />
           <Typography variant="h6" component="div">
-          Welcome to AIFI, Your AI Finance Manager!
+          Welcome to Your AI Finance Manager!
           </Typography>
         </Box>
         {selectedRole && (

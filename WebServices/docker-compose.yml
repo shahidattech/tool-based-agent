@@ -11,7 +11,7 @@ services:
     ports:
       - 8001:8001
     networks:
-      - -aifi-network
+      - shared-network
     volumes:
       - ./app:/base/app
 
@@ -34,7 +34,7 @@ services:
     ports:
       - 27017:27017
     networks:
-      - -aifi-network
+      - shared-network
     volumes:
       - ./data:/data/db
       - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
@@ -44,7 +44,7 @@ services:
       - DB_NAME=assistant_db
 
 networks:
-  -aifi-network:
+  shared-network:
 volumes:
-  -aifi-volume:
+  aifi-volume:
   

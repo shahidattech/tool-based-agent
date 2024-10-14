@@ -16,7 +16,7 @@ class MongoDalService:
         self.mognoDal = MongoDBServiceConv()
 
     
-@router.post("/ai-assistant/")
+@router.post("/assist/")
 async def _ai_assistant_v2(input: ChatPayloadModel,
                        mongoDalService: MongoDalService = Depends(MongoDalService)):
     return await ai_assistant_v2(input=input, mongoDalService=mongoDalService)

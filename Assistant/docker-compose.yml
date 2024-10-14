@@ -11,7 +11,7 @@ services:
     ports:
       - 8000:8000
     networks:
-      - webservices_ai-network
+      - webservices_shared-network
     volumes:
       - ./app:/base/app
 
@@ -31,14 +31,17 @@ services:
       - AZURE_OPENAI_API_VERSION=2024-05-01-preview
       - AZURE_OPENAI_MODEL_NAME=gpt-4
       - OPENAI_MODEL_NAME=gpt-4
-      - OPENAI_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXX
+      - OPENAI_API_KEY=XXXXXXXXXXXXXXXX
       - API_BASE_URL=XXXXXXXXXXXXXXXXXXXXXXXX
       - FILE_BASE_PATH=/base/app/
 
-# Remote network webservices_ai-network
+# Remote network webservices_aifi-network
 networks:
-  webservices_ai-network:
+  webservices_shared-network:
     external: true
+
+# Remote
+
 
 volumes:
   -aifi-volume:
